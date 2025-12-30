@@ -1,8 +1,8 @@
 <!-- ==================== BANNER SECTION ==================== -->
 
 <div align="center">
-  <a href="https://github.com/SleepyCatHey/CozyPixels/blob/main/cozypixels-banner.png">
-    <img src="cozypixels-banner.png" width="100%" alt="CozyPixels - Wallpaper Collection Banner">
+  <a href="https://github.com/Runarok/CozyPixels/blob/main/Assets/cozypixels-banner.png">
+    <img src="Assets/cozypixels-banner.png" width="100%" alt="CozyPixels - Wallpaper Collection Banner">
   </a>
 </div>
 
@@ -31,36 +31,36 @@
       <td align="center">
         <table>
           <tr>
-            <td><img src="https://github.com/SleepyCatHey/CozyPixels/blob/main/Catppuccin/Anime%20%26%20Gaming/touhou-lake.jpg" width="150" alt="Catppuccin 1"></td>
-            <td><img src="https://github.com/SleepyCatHey/CozyPixels/blob/main/Catppuccin/Abstract%20%26%20Artistic/dark-waves.jpg" width="150" alt="Catppuccin 2"></td>
+            <td><img src="https://github.com/Runarok/CozyPixels/blob/main/Catppuccin/Anime%20%26%20Gaming/touhou-lake.jpg" width="150" alt="Catppuccin 1"></td>
+            <td><img src="https://github.com/Runarok/CozyPixels/blob/main/Catppuccin/Abstract%20%26%20Artistic/dark-waves.jpg" width="150" alt="Catppuccin 2"></td>
           </tr>
           <tr>
-            <td><img src="https://github.com/SleepyCatHey/CozyPixels/blob/main/Catppuccin/Abstract%20%26%20Artistic/painting-standing.jpg" width="150" alt="Catppuccin 3"></td>
-            <td><img src="https://github.com/SleepyCatHey/CozyPixels/blob/main/Catppuccin/Uncategorized/tank.jpg" width="150" alt="Catppuccin 4"></td>
-          </tr>
-        </table>
-      </td>
-      <td align="center">
-        <table>
-          <tr>
-            <td><img src="https://github.com/SleepyCatHey/CozyPixels/blob/main/Nord/Anime%20%26%20Gaming/ign_LofiCity-1.png" width="150" alt="Nord 1"></td>
-            <td><img src="https://github.com/SleepyCatHey/CozyPixels/blob/main/Nord/Anime%20%26%20Gaming/ign_waifu.png" width="150" alt="Nord 2"></td>
-          </tr>
-          <tr>
-            <td><img src="https://github.com/SleepyCatHey/CozyPixels/blob/main/Nord/Sci-Fi%20%26%20Movies/ign_batman.png" width="150" alt="Nord 3"></td>
-            <td><img src="https://github.com/SleepyCatHey/CozyPixels/blob/main/Nord/Cozy%20Interiors/ign_PaintingStudio-01.png" width="150" alt="Nord 4"></td>
+            <td><img src="https://github.com/Runarok/CozyPixels/blob/main/Catppuccin/Abstract%20%26%20Artistic/painting-standing.jpg" width="150" alt="Catppuccin 3"></td>
+            <td><img src="https://github.com/Runarok/CozyPixels/blob/main/Catppuccin/Uncategorized/tank.jpg" width="150" alt="Catppuccin 4"></td>
           </tr>
         </table>
       </td>
       <td align="center">
         <table>
           <tr>
-            <td><img src="https://github.com/SleepyCatHey/CozyPixels/blob/main/One%20Dark/Gaming%20(BOTW)/od_guardian.png" width="150" alt="One Dark 1"></td>
-            <td><img src="https://github.com/SleepyCatHey/CozyPixels/blob/main/One%20Dark/Minimal%20%26%20Abstract/od_tetris.png" width="150" alt="One Dark 2"></td>
+            <td><img src="https://github.com/Runarok/CozyPixels/blob/main/Nord/Anime%20%26%20Gaming/ign_LofiCity-1.png" width="150" alt="Nord 1"></td>
+            <td><img src="https://github.com/Runarok/CozyPixels/blob/main/Nord/Anime%20%26%20Gaming/ign_waifu.png" width="150" alt="Nord 2"></td>
           </tr>
           <tr>
-            <td><img src="https://github.com/SleepyCatHey/CozyPixels/blob/main/One%20Dark/Sci-Fi%20%26%20Movies/od_vaporwave.png" width="150" alt="One Dark 3"></td>
-            <td><img src="https://github.com/SleepyCatHey/CozyPixels/blob/main/One%20Dark/Urban%20%26%20Architecture/od_tokyo.jpg" width="150" alt="One Dark 4"></td>
+            <td><img src="https://github.com/Runarok/CozyPixels/blob/main/Nord/Sci-Fi%20%26%20Movies/ign_batman.png" width="150" alt="Nord 3"></td>
+            <td><img src="https://github.com/Runarok/CozyPixels/blob/main/Nord/Cozy%20Interiors/ign_PaintingStudio-01.png" width="150" alt="Nord 4"></td>
+          </tr>
+        </table>
+      </td>
+      <td align="center">
+        <table>
+          <tr>
+            <td><img src="https://github.com/Runarok/CozyPixels/blob/main/One%20Dark/Gaming%20(BOTW)/od_guardian.png" width="150" alt="One Dark 1"></td>
+            <td><img src="https://github.com/Runarok/CozyPixels/blob/main/One%20Dark/Minimal%20%26%20Abstract/od_tetris.png" width="150" alt="One Dark 2"></td>
+          </tr>
+          <tr>
+            <td><img src="https://github.com/Runarok/CozyPixels/blob/main/One%20Dark/Sci-Fi%20%26%20Movies/od_vaporwave.png" width="150" alt="One Dark 3"></td>
+            <td><img src="https://github.com/Runarok/CozyPixels/blob/main/One%20Dark/Urban%20%26%20Architecture/od_tokyo.jpg" width="150" alt="One Dark 4"></td>
           </tr>
         </table>
       </td>
@@ -72,9 +72,9 @@
 
 ## 📂 Categories
 
-- **[Catppuccin](https://github.com/SleepyCatHey/CozyPixels/tree/main/Catppuccin)** - Warm latte-inspired pastels
-- **[Nord](https://github.com/SleepyCatHey/CozyPixels/tree/main/Nord)** - Arctic, north-bluish color palette
-- **[One Dark](https://github.com/SleepyCatHey/CozyPixels/tree/main/One%20Dark)** - Comfortable dark theme
+- **[Catppuccin](https://github.com/Runarok/CozyPixels/tree/main/Catppuccin)** - Warm latte-inspired pastels
+- **[Nord](https://github.com/Runarok/CozyPixels/tree/main/Nord)** - Arctic, north-bluish color palette
+- **[One Dark](https://github.com/Runarok/CozyPixels/tree/main/One%20Dark)** - Comfortable dark theme
 
 <!-- ==================== DOWNLOAD INSTRUCTIONS ==================== -->
 
