@@ -166,3 +166,14 @@ function getFirstImageUrl(baseFolder, subfolder) {
   if (files.length === 0) return null;
   return getImageUrl(baseFolder, subfolder, files[0]);
 }
+
+// Calculate total images
+function getTotalImageCount() {
+  let total = 0;
+  Object.keys(FOLDERS_DATA).forEach(baseFolder => {
+    Object.keys(FOLDERS_DATA[baseFolder]).forEach(subfolder => {
+      total += FOLDERS_DATA[baseFolder][subfolder].length;
+    });
+  });
+  return total;
+}
