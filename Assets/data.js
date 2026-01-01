@@ -155,25 +155,29 @@ const FOLDERS_DATA = {
   },
 };
 
+// ===== Helper Functions =====
 function getImageUrl(baseFolder, subfolder, filename) {
-  const encodedSubfolder = subfolder.replace(/&/g, "%26").replace(/ /g, "%20");
-  const encodedFilename = filename.replace(/&/g, "%26").replace(/ /g, "%20");
-  return `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/refs/heads/main/${baseFolder}/${encodedSubfolder}/${encodedFilename}`;
+    const encodedSubfolder = subfolder.replace(/&/g, "%26").replace(/ /g, "%20");
+    const encodedFilename = filename.replace(/&/g, "%26").replace(/ /g, "%20");
+    return `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/refs/heads/main/${baseFolder}/${encodedSubfolder}/${encodedFilename}`;
 }
 
 function getFirstImageUrl(baseFolder, subfolder) {
-  const files = FOLDERS_DATA[baseFolder]?.[subfolder] || [];
-  if (files.length === 0) return null;
-  return getImageUrl(baseFolder, subfolder, files[0]);
+    const files = FOLDERS_DATA[baseFolder]?.[subfolder] || [];
+    if (files.length === 0) return null;
+
+    const randomIndex = Math.floor(Math.random() * files.length);
+    return getImageUrl(baseFolder, subfolder, files[randomIndex]);
 }
 
-// Calculate total images
-function getTotalImageCount() {
-  let total = 0;
-  Object.keys(FOLDERS_DATA).forEach(baseFolder => {
-    Object.keys(FOLDERS_DATA[baseFolder]).forEach(subfolder => {
-      total += FOLDERS_DATA[baseFolder][subfolder].length;
+function calculateUniqueImages() {
+    uniqueImageUrls.clear();
+    Object.keys(FOLDERS_DATA).forEach(baseFolder => {
+        Object.keys(FOLDERS_DATA[baseFolder]).forEach(subfolder => {
+            FOLDERS_DATA[baseFolder][subfolder].forEach(file => {
+                uniqueImageUrls.add(getImageUrl(baseFolder, subfolder, file));
+            });
+        });
     });
-  });
-  return total;
+    document.getElementById('total-images').textContent = uniqueImageUrls.size;
 }

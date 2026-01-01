@@ -4,51 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CozyPixels - Wallpaper Gallery</title>
-    <link rel="stylesheet" href="Assets/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="Assets/styles.css">
+
 </head>
 <body>
-    <!-- Sidebar -->
+    <!-- Hover Zone for Sidebar -->
+    <div class="hover-zone" id="hover-zone"></div>
+
+    <!-- Popup Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V9C21 7.89543 20.1046 7 19 7H13L11 5H5C3.89543 5 3 5.89543 3 7Z" stroke="currentColor" stroke-width="2"/>
                 </svg>
                 <span>CozyPixels</span>
             </div>
-            <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
+            <div class="subtitle">Aesthetic Wallpaper Gallery</div>
         </div>
         
         <nav class="sidebar-nav">
             <div class="nav-section">
                 <h3 class="nav-title">Collections</h3>
-                <ul class="nav-list" id="collections-list">
-                    <!-- Collections will be dynamically loaded -->
-                </ul>
+                <ul class="nav-list" id="collections-list"></ul>
             </div>
             
             <div class="nav-section">
                 <h3 class="nav-title">Quick Access</h3>
                 <ul class="nav-list">
                     <li class="nav-item" data-action="all">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                            <path d="M3 7H21M3 12H21M3 17H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M3 7H21M3 12H21M3 17H21" stroke="currentColor" stroke-width="2"/>
                         </svg>
                         <span>All Wallpapers</span>
                     </li>
                     <li class="nav-item" data-action="favorites">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.03L12 21.35Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.03L12 21.35Z" stroke="currentColor" stroke-width="2"/>
                         </svg>
                         <span>Favorites</span>
-                        <span class="badge">0</span>
+                        <span class="badge" id="favorites-count">0</span>
                     </li>
                 </ul>
             </div>
@@ -56,67 +55,79 @@
         
         <div class="sidebar-footer">
             <div class="stats">
-                <div class="stat-item">
-                    <span class="stat-label">Total Images</span>
-                    <span class="stat-value" id="total-images">0</span>
-                </div>
+                <span class="stat-label">Unique Images</span>
+                <span class="stat-value" id="total-images">0</span>
             </div>
         </div>
     </aside>
 
     <!-- Main Content -->
-    <main class="main-content" id="main-content">
-        <!-- Header with breadcrumb -->
-        <header class="content-header">
-            <div class="breadcrumb-container">
-                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </button>
-                <div class="breadcrumb" id="breadcrumb">
-                    <button class="breadcrumb-item" data-path="">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                            <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <main class="main-content">
+        <!-- Intro Banner -->
+        <div class="intro-banner" id="intro-banner">
+            <button class="close-intro" id="close-intro">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </button>
+            <div class="intro-content">
+                <img src="/cozypixels-banner.png" alt="CozyPixels Banner" class="banner-image" onerror="this.style.display='none'">
+                <h1 class="intro-title">Welcome to CozyPixels</h1>
+                <p class="intro-text">
+                    Your curated collection of aesthetic wallpapers. Browse through beautiful collections, 
+                    save your favorites, and discover your next desktop background.
+                </p>
+                <div style="margin-top: 1.5rem;">
+                    <div class="intro-feature">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        <span>Home</span>
-                    </button>
-                    <!-- Dynamic breadcrumbs will be added here -->
+                        <span>Hover near the left edge to open the sidebar</span>
+                    </div>
+                    <div class="intro-feature">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.03L12 21.35Z" fill="currentColor"/>
+                        </svg>
+                        <span>Export & share your favorite collections</span>
+                    </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="content-header">
+            <div class="breadcrumb" id="breadcrumb">
+                <button class="breadcrumb-item active" data-path="">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M3 9L12 2L21 9V20C21 20.5 20.8 21 20.4 21.4C20 21.8 19.5 22 19 22H5C4.5 22 4 21.8 3.6 21.4C3.2 21 3 20.5 3 20V9Z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>Home</span>
+                </button>
             </div>
             
             <div class="header-actions">
                 <div class="search-box">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                         <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
-                        <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2"/>
                     </svg>
                     <input type="text" placeholder="Search wallpapers..." id="search-input">
                 </div>
                 
-                <div class="view-toggle">
-                    <button class="view-btn active" data-view="grid" aria-label="Grid view">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="2"/>
-                            <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="2"/>
-                            <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="2"/>
-                            <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </button>
-                    <button class="view-btn" data-view="list" aria-label="List view">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                </div>
+                <button class="action-btn" id="export-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 15V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V15M17 8L12 3M12 3L7 8M12 3V15" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>Export/Import</span>
+                </button>
             </div>
         </header>
 
-        <!-- Content Grid -->
+        <!-- Content Area -->
         <div class="content-area">
-            <div class="content-grid" id="content-grid">
-                <!-- Content will be dynamically loaded -->
-            </div>
+            <h2 class="section-title" id="section-title">All Collections</h2>
+            <div class="content-grid" id="content-grid"></div>
         </div>
     </main>
 
@@ -124,25 +135,25 @@
     <div class="modal" id="modal">
         <div class="modal-backdrop" id="modal-backdrop"></div>
         <div class="modal-container">
-            <button class="modal-close" id="modal-close" aria-label="Close">
+            <button class="modal-close" id="modal-close">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2"/>
                 </svg>
             </button>
             
             <div class="modal-content">
                 <div class="modal-image-container">
-                    <button class="modal-nav modal-nav-prev" id="modal-prev" aria-label="Previous">
+                    <button class="modal-nav modal-nav-prev" id="modal-prev">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </button>
                     
                     <img src="" alt="" id="modal-image" class="modal-image">
                     
-                    <button class="modal-nav modal-nav-next" id="modal-next" aria-label="Next">
+                    <button class="modal-nav modal-nav-next" id="modal-next">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </button>
                 </div>
@@ -153,25 +164,16 @@
                     
                     <div class="modal-actions">
                         <button class="modal-btn" id="modal-download">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15M7 10L12 15M12 15L17 10M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M21 15V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V15M7 10L12 15M12 15L17 10M12 15V3" stroke="currentColor" stroke-width="2"/>
                             </svg>
                             <span>Download</span>
                         </button>
                         <button class="modal-btn" id="modal-favorite">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.03L12 21.35Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.03L12 21.35Z" stroke="currentColor" stroke-width="2"/>
                             </svg>
                             <span>Add to Favorites</span>
-                        </button>
-                        <button class="modal-btn" id="modal-share">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                                <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="2"/>
-                                <path d="M8.59 13.51L15.42 17.49M15.41 6.51L8.59 10.49" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                            <span>Share</span>
                         </button>
                     </div>
                 </div>
@@ -179,7 +181,34 @@
         </div>
     </div>
 
+    <!-- Import/Export Modal -->
+    <div class="import-export-modal" id="import-export-modal">
+        <div class="modal-backdrop"></div>
+        <div class="import-export-content">
+            <h2 class="import-export-title">Export & Import Favorites</h2>
+            
+            <div class="import-export-section">
+                <label class="import-export-label">Export (Copy this JSON):</label>
+                <textarea class="import-export-textarea" id="export-textarea" readonly></textarea>
+                <button class="btn btn-primary" id="copy-export-btn" style="margin-top: 0.75rem;">
+                    Copy to Clipboard
+                </button>
+            </div>
+            
+            <div class="import-export-section">
+                <label class="import-export-label">Import (Paste JSON here):</label>
+                <textarea class="import-export-textarea" id="import-textarea" placeholder='Paste favorites JSON here...'></textarea>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn btn-secondary" id="cancel-import-export">Cancel</button>
+                <button class="btn btn-primary" id="import-btn">Import Favorites</button>
+            </div>
+        </div>
+    </div>
+
     <script src="Assets/data.js"></script>
     <script src="Assets/script.js"></script>
+
 </body>
 </html>
